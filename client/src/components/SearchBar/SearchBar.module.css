@@ -1,0 +1,35 @@
+.button {
+    background-image: url("../../assets/Images/lupita.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
+    clip-path: circle(23%);
+    cursor: pointer;
+    
+
+}
+
+.button:hover{
+    background-color: white;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(109, 108, 108, 0.6);
+    border-radius: 30px;
+    border:rgb(109, 108, 108);
+    
+
+}
+
+.container input {
+    border-radius: 20px;
+    height: 30px;
+    margin-top: 17px;
+    margin-left: 15px;
+    border: white solid;
+    
+    
+}

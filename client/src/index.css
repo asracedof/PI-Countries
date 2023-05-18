@@ -1,0 +1,62 @@
+:root {
+  --purple-light: #A869C1;
+  --purple-medium: #7A3F93;
+  --purple-dark: #47215E;
+  --purple:rgba(103, 43, 143, 0.4);
+  --pink: #c93f78;
+  --green: #abdb19;
+  --green-medium:#16c216;
+  --dark-green: #0faf09;
+  --blue: #00C9FF;
+  --ligth-blue: rgb(202, 228, 240);
+  --light-taupe: #B4B0AD;  /* Light Taupe */
+  --dark-taupe: #736E6B;  /* Dark Taupe */
+  --accent-color: #C93F78;  /* Accent Color (Deep Rose) */
+  --background-color: #F5F5F5;  /* Background Color (Gainsboro) */
+  --text-color: #333333;  /* Main Text Color (Black) */
+  --text-secondary-color: #666666;  /* Secondary Text Color (Dim Gray) */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.logoLI {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+  margin-right: 5px;
+}
+
+.logoGH{
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color:var(--dark-taupe);
+  height: 70px;
+  color: rgb(8, 8, 8);
+  font-size: 20px;
+}
