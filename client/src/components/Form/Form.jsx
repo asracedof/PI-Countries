@@ -16,14 +16,14 @@ export default function Form(){
     const [loading, setLoading] = useState(true);
     const [touch, setTouch] = useState({
         name: false,
-        level:false,
+       difficulty:false,
         duration: false,
         season: false,
         countries: false
     })
     const initialState = {
         name: "",
-        level: 0,
+        difficulty: 0,
         duration: "",
         season: "",
         countries: []
@@ -33,7 +33,7 @@ export default function Form(){
 
     const [errors, setErrors] = useState({
         name:  "",
-        level: 0,
+        difficulty: 0,
         duration: "",
         season: "",
         countries: [],
@@ -74,13 +74,13 @@ export default function Form(){
             console.log("Error al agregar la actividad", error.message);
         }
 
-        if(Object.keys(errors).length === 0 && inputs.name && inputs.level && inputs.duration && inputs.countries && inputs.season){
+        if(Object.keys(errors).length === 0 && inputs.name && inputs.difficulty && inputs.duration && inputs.countries && inputs.season){
             setSuccess(true);
             setTimeout(() => {
                 setSuccess(false);
                 setInputs({
                   name: "",
-                  level: 0,
+                  difficulty: 0,
                   duration: "",
                   season: "",
                   countries: [],
@@ -142,9 +142,9 @@ export default function Form(){
 
             <div/>
             <div className = {style.group}>
-            <label className = {style.label} htmlFor="level">Dificultad: </label>
-            <input className = {style.input} name = "level" type="number" value={inputs.level} onChange={handleInputChange} ></input>
-            {touch.level && errors.level && <p className={style.validate}>{errors.level}</p>}
+            <label className = {style.label} htmlFor="difficulty">Dificultad: </label>
+            <input className = {style.input} name = "difficulty" type="number" value={inputs.difficulty} onChange={handleInputChange} ></input>
+            {touch.difficulty && errors.difficulty && <p className={style.validate}>{errors.difficulty}</p>}
             </div>
 
             <div className = {style.group}>

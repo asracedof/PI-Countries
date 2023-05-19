@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         comment: 'Name of the activity',
       },
-      level: {
+      difficulty: {
         type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 1,

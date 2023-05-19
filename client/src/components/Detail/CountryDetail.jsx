@@ -1,11 +1,12 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 import styles from './Detail.module.css';
 
 export default function Detail() {
   const { id } = useParams();
   const [country, setCountry] = useState(null);
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -39,10 +40,19 @@ export default function Detail() {
           <h4>Subregion: {country.subregion}</h4>
           <h4>Area: {country.area}</h4>
           <h4>Population: {country.population}</h4>
-          
         </div>
+        {
+          country.activities && (country.activities.map(activity=>(
+            <div key={activity.id}>
+              <h4>{activity.name}</h4>
+              <p>Difficulty: {activity.difficulty}</p>
+              <p>Duration: {activity.duration}</p>
+              <p>Season: {activity.season}</p>
+            </div>
+          )))
+        }
+
       </div>
     </div>
   );
 }
-

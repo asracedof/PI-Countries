@@ -1,8 +1,8 @@
-export default function validate({name, level, duration, season, countries}){
+export default function validate({name, difficulty, duration, season, countries}){
     var errors = {};
     
     if(name?.length === 0) errors.name = "Se necesita el nombre de la actividad";
-    if(level > 5 || level < 1) errors.level = "La dificultad debe ser entre 1 y 5";
+    if(difficulty > 5 || difficulty < 1) errors.difficulty = "La dificultad debe ser entre 1 y 5";
     if(duration?.length === 0) errors.duration = "La duracion necesita un tiempo para la actividad";
     if(duration === "2 horas") errors.duration = "La duración necesita un tiempo no mayor a 2 horas";
     if(season?.length === 0) errors.season = "Se necesita la temporada de la actividad";

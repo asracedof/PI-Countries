@@ -20,7 +20,7 @@ const getActivityById = async (req, res) => {
     const response = {
       id: activity.id,
       name: activity.name,
-      level: activity.level,
+      difficulty: activity.difficulty,
       duration: activity.duration,
       season: activity.season,
       countries: activity.countries.map((country) => ({

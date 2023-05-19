@@ -1,10 +1,10 @@
 const { Activity, Country } = require('../db');
 const postActivities = async (req, res) => {
     try {
-        const { name, level, duration, season,  countries } = req.body;
+        const { name, difficulty, duration, season,  countries } = req.body;
         
         const newActivity = await Activity.create({
-             name, level, duration, season
+             name, difficulty, duration, season
         })
         
         for(let i=0; i< countries.length; i++){
