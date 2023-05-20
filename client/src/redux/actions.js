@@ -1,4 +1,4 @@
-import { RESET_COUNTRIES ,GET_COUNTRIES ,FILTER_BY_ACTIVITY,FILTER_BY_CONTINENT, ORDER_BY_ALPHABET, ORDER_BY_POPULATION, UPDATE_ORDER } from "./type";
+import { RESET_COUNTRIES ,GET_COUNTRIES ,FILTER_BY_TYPE,FILTER_BY_CONTINENT, ORDER_BY_ALPHABET, ORDER_BY_POPULATION, UPDATE_ORDER } from "./type";
 
 
 export const updateOrder = (order) => {
@@ -27,12 +27,13 @@ export const filterByContinent = (continent) => {
     }
 }
 
-export const filterByActivity = (activity) => {
+export const filterByType = (types) => {
     return {
-        type: FILTER_BY_ACTIVITY,
-        payload: activity
-    }
-}
+      type: FILTER_BY_TYPE,
+      payload: types
+    };
+  };
+  
 
 export const orderByAlphabet = (status) => {
     return {

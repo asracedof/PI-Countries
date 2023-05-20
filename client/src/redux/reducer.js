@@ -1,5 +1,5 @@
 import {
-    FILTER_BY_ACTIVITY,
+    FILTER_BY_TYPE,
     FILTER_BY_CONTINENT,
     GET_COUNTRIES,
     ORDER_BY_ALPHABET,
@@ -40,16 +40,17 @@ const reducer = (state = initialState, action) => {
           order: "continent"
       };
   
-      case FILTER_BY_ACTIVITY:
-        const { payload: activity } = action;
-        const filteredByActivity = state.allCountries.filter(country =>
-          country.activities.some(activities => activities.name === activity)
+      case FILTER_BY_TYPE:
+        const { payload: types } = action;
+        const filteredByType = state.allCountries.filter(country =>
+          country.activities.some(activities => activities.types === types)
         );
         return {
           ...state,
-          filtered: filteredByActivity,
-          order: "activity"
+          filtered: filteredByType,
+          order: "types"
       };
+
   
       case ORDER_BY_ALPHABET:
         const { payload: sortOrder } = action;

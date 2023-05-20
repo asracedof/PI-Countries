@@ -3,7 +3,7 @@ const { Activity, Country } = require("../db");
 const createActivity = async (req, res) => {
   try {
     // Obtener los datos del body
-    const { name, difficulty, duration, season, countries } = req.body;
+    const { name, difficulty, duration, season, types, countries } = req.body;
     if (!countries){
       res.status(400).json({ error: "Country not found" });
     }
@@ -16,7 +16,8 @@ const createActivity = async (req, res) => {
       name,
       difficulty,
       duration,
-      season
+      season,
+      types
       });
 
       // Asociar la actividad turística con los países indicados

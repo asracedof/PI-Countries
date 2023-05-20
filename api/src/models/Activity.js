@@ -30,7 +30,12 @@ module.exports = (sequelize) => {
         allowNull: true,
         comment: 'Duration of the activity',
       },
-      season: {
+      types: {
+      type: DataTypes.ENUM('Adventure', 'Beach', 'Culture', 'Nature', 'Sports', 'Chilling', 'Gastronomy'),
+      allowNull: false,
+      comment: 'Type of activity',
+      },
+       season: {
         type: DataTypes.STRING,
         allowNull: false,
         comment: 'Season during which the activity is recommended',

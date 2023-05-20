@@ -23,9 +23,10 @@ const getActivityById = async (req, res) => {
       difficulty: activity.difficulty,
       duration: activity.duration,
       season: activity.season,
+      types: activity.types,
       countries: activity.countries.map((country) => ({
-        id: country.id,
-        name: country.name,
+      id: country.id,
+      name: country.name,
         
        })),
     };
