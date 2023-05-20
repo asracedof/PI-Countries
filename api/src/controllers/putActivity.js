@@ -2,7 +2,7 @@ const { Activity } = require('../db');
 
 const putActivity = async (req, res) => {
   try {
-    const { name, difficulty, duration, season, countries } = req.body;
+    const { name, difficulty, duration, season,  types, countries } = req.body;
     const activityId = req.params.id;
     const activity = await Activity.findByPk(activityId);
 
@@ -10,7 +10,7 @@ const putActivity = async (req, res) => {
       return res.status(404).json({ message: 'Activity not found.' });
     }
 
-    await activity.update({ name, difficulty, duration, season });
+    await activity.update({ name, difficulty, duration, types,  season });
     await activity.setCountries(countries);
 
     return res.status(200).json(activity);
