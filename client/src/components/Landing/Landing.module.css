@@ -1,25 +1,35 @@
 .landingContainer {
-  background: url("../../assets/Images/3.gif");
-  background-size: cover;
+  background: url("../../assets/Images/bg3.png");
+  background-size:cover;
   background-position: center;
+  background-repeat: no-repeat;
   background-color: rgba(206, 147, 186, 0.4);
-  background-blend-mode: lighten;
+  /* background-blend-mode: lighten; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 89.3vh;
+  height: 92vh;
   padding: 20px;
 }
 
 .animation {
   font-family: "Arial", sans-serif;
+  display:flex;
+  flex-direction:column;
+  position: absolute;
+  align-items: center;
+   top: 10%;
+   text-shadow: 2px 4px 0px var(--accent-100), 7px 4px 0px var(--accent-200);
+   transition: 200ms;
   font-size: 80px;
-  color: rgb(2, 12, 54);
+  color:var(--text-100);
   text-align: center;
   animation: fadeInUp 1s ease-in-out;
 }
-
+.animation:hover {
+  color: var(--text-200);
+}
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -32,12 +42,15 @@
 }
 
 .exploreButton {
-  display: inline-block;
+  display:flex;
+  flex-direction:column;
+  position: absolute;
+   top: 40%;
   padding: 12px 24px;
-  background-color: #ff6b6b;
-  color: #fff;
+  background-color: var(--bg-botton);
+  color:var(--text-300);
   font-family: "Arial", sans-serif;
-  font-size: 18px;
+  font-size: 30px;
   text-decoration: none;
   border-radius: 6px;
   border: none;
@@ -45,5 +58,33 @@
 }
 
 .exploreButton:hover {
-  background-color: #ff4c4c;
+  background-color: var(--accent-botton);
+  transform: scale(1.1);
+  box-shadow: 2px 4px 0px var(--accent-100), 7px 4px 0px var(--accent-200);
 }
+/* OPCION 2 */
+/* .landingContainer {
+  background: url("../../assets/Images/bg3.png");
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(206, 147, 186, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 89.3vh;
+  padding: 20px;
+} */
+/* .animation {
+  font-family: "Arial", sans-serif;
+  display:flex;
+  flex-direction:column;
+  position: absolute;
+   top: 10%;
+  right: 60px;
+  font-size: 40px;
+  color: rgb(2, 12, 54);
+  text-align: center;
+  animation: fadeInUp 1s ease-in-out;
+} */

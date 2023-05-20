@@ -4,7 +4,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import validate from "./validate";
 import ok from "../../assets/Images/success.png";
-import load from "../../assets/Images/load.png";
+import load from "../../assets/Images/load2.gif";
 import failed from "../../assets/Images/fail.png"
 
 export default function Form(){

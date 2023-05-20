@@ -1,14 +1,13 @@
 import style from './Home.module.css';
-import Cards from '../Cards/Cards';
 import { useState, useEffect } from 'react';
+import Card from '../Card/Card';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Helpers from '../Helpers/helpers';
 import { getAllCountries } from "../../redux/actions";
 import { useDispatch, useSelector } from 'react-redux';
 import SearchBar from '../SearchBar/SearchBar';
 import Pagination from '../Pagination/Pagination';
-import load from "../../assets/Images/load.png";
+import load from "../../assets/Images/load4.gif";
 
 export default function Home(props) {
   const { setSearchResults, SearchResults, onSearch } = props;
@@ -121,7 +120,7 @@ export default function Home(props) {
               <div className={style.part1}>
                  <div className={style.title}>
                      <h1>Embark on a Journey</h1>
-                     <h2>Choose Your Destination</h2>
+                     <h2>Choose your Destination</h2>
                   </div>
                  <SearchBar onSearch={onSearch} />
                   <div className={style.select}>
@@ -129,28 +128,12 @@ export default function Home(props) {
                    </div>
               </div>
               <div className={style.container}>
-                 <Cards country={SearchResults.length === 0 ?  filterSortCountries : []} />
                   {SearchResults.length > 0 ? (
-                  SearchResults.slice((currentPage - 1) * 10, currentPage * 10).map((cont, index) => (
-                    <div className={style.card} key={index}>
-                      <Link className={style.txt} to={`/detail/${cont.id}`} key={cont.id}>
-                       <span><img className={style.img} src={cont.image} alt={cont.name} /></span> 
-                        <span><h2 className={style.name}>{cont.name}</h2></span>
-                        <p className={style.p}>Continent: {cont.continents}</p>
-                        <p className={style.p1}>Population: {cont.population}</p>
-                      </Link>
-                    </div>
+                  SearchResults.slice((currentPage - 1) * 10, currentPage * 10).map((cont, index) => (<Card key={cont.id} cont={cont}/>
                   ))
                 ) : (
-                  filterSortCountries.slice((currentPage - 1) * 10, currentPage * 10).map((cont, index) => (
-                    <div className={style.card} key={index}>
-                      <Link className={style.txt} to={`/detail/${cont.id}`} key={cont.id}>
-                        <img className={style.img} src={cont.image} alt={cont.name} />
-                        <h2 className={style.name}>{cont.name}</h2>
-                        <p className={style.p}>Continent: {cont.continents}</p>
-                        <p className={style.p1}>Population: {cont.population}</p>
-                      </Link>
-                    </div>
+                  filterSortCountries.slice((currentPage - 1) * 10, currentPage * 10).map((cont) => (
+                    <Card key={cont.id} cont={cont}/>
                   ))
                 )}
               </div>

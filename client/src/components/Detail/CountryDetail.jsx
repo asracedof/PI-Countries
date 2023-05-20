@@ -25,17 +25,18 @@ export default function Detail() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.detail}>
+    
       <div className={styles.containerDetail}>
-        <div className={styles.name}>
-          <h1>{country.name}</h1>
-        </div>
-        <div>
+         <div>
           <img className={styles.flag} src={country.image} alt={country.name} />
         </div>
         <div className={styles.info}>
+           <div className={styles.name}>
+          <h1>{country.name}</h1>
+        </div>
           <h3>Id: {country.id}</h3>
-          <h4>Continent: {country.continent}</h4>
+          <h4>Continent: {country.continents}</h4>
           <h4>Capital: {country.capital}</h4>
           <h4>Subregion: {country.subregion}</h4>
           <h4>Area: {country.area}</h4>
@@ -54,5 +55,6 @@ export default function Detail() {
 
       </div>
     </div>
+    
   );
 }

@@ -1,4 +1,83 @@
+/* --primary-100:#FF8C00;
+--primary-200:#dc7000;
+--primary-300:#8e3000;
+--accent-100:#FFDAB9;
+--accent-200:#997a5c;
+--text-100:#FFFFFF;
+--text-200:#e0e0e0;
+--bg-100:#FFA07A;
+--bg-200:#f49671;
+--bg-300:#c9714d; 
+
+
+    --primary-100:#FFC857;
+    --primary-200:#deab3a;
+    --primary-300:#936a00;
+    --accent-100:#F95738;
+    --accent-200:#fff2c4;
+    --text-100:#FFFFFF;
+    --text-200:#e0e0e0;
+    --bg-100:#F9A03F;
+    --bg-200:#ee9635;
+    --bg-300:#c17105;
+      
+    --primary-100:#FFC857;
+    --primary-200:#deab3a;
+    --primary-300:#936a00;
+    --accent-100:#F95738;
+    --accent-200:#fff2c4;
+    --text-100:#FFFFFF;
+    --text-200:#e0e0e0;
+    --bg-100:#F9A03F;
+    --bg-200:#ee9635;
+    --bg-300:#c17105;
+
+
+    --primary-100:#FF5722;
+    --primary-200:#ff8a50;
+    --primary-300:#fff3b0;
+    --accent-100:#FFC107;
+    --accent-200:#916400;
+    --text-100:#FFFFFF;
+    --text-200:#e0e0e0;
+    --bg-100:#F9A825;
+    --bg-200:#ee9e17;
+    --bg-300:#c17900;
+
+    --primary-100:#FFA500;
+    --primary-200:#dd8900;
+    --primary-300:#904a00;
+    --accent-100:#FFC107;
+    --accent-200:#916400;
+    --text-100:#FFFFFF;
+    --text-200:#e0e0e0;
+    --bg-100:#8FBF9F;
+    --bg-200:#85b595;
+    --bg-300:#608f71;
+
+*/
+  
+
+
 :root {
+  --accent-100:#c9714d;
+  --accent-200:#f49671;
+  --accent-botton:#ff4c4c;
+  --accent-card: #F9A825;
+  --text-100:#8e3000;
+  --text-200:#fff496;
+  --text-300:#e0e0e0;
+  --text-400:#FFFFFF;
+  --bg-100:#FFC857;
+  --bg-botton:#ff8a50;
+  --bg-footer:#c17900;
+  --bg-card:#ee9e17;
+  --bg-text:#FF5722;
+ 
+  
+
+
+
   --purple-light: #A869C1;
   --purple-medium: #7A3F93;
   --purple-dark: #47215E;
@@ -38,15 +117,15 @@ code {
 }
 
 .logoLI {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   margin-left: 20px;
   margin-right: 5px;
 }
 
 .logoGH{
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 100px;
 }
 
@@ -55,8 +134,8 @@ code {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color:var(--dark-taupe);
-  height: 70px;
-  color: rgb(8, 8, 8);
+  background-color:var(--bg-footer);
+  height: 53px;
+  color: var(--text-300);
   font-size: 20px;
 }
