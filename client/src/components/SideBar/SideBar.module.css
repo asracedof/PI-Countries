@@ -1,0 +1,36 @@
+.sidebarContainer{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #16161680;
+    position: fixed;
+    top: 0;
+    left: -3000px;
+    z-index: 11;
+    animation-name: openbar;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    backdrop-filter: blur(5px);
+
+
+}
+.sidebar{
+    width: 20%;
+    background-color: aliceblue;
+    min-height: 100vh;
+}
+.filterContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+@keyframes openbar {
+    0%{
+        left: -3000px;
+        }
+    100%{
+        left: 0;
+    }
+}

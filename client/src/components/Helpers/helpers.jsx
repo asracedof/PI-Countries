@@ -29,6 +29,7 @@ export default function Selector(props) {
   const handleByContinent = (event) => {
     const value = event.target.value;
     dispatch(filterByContinent(value));
+    setCurrentPage(1);
     setOrden(value);
     setSelectValues({
       ...selectValues,

@@ -1,51 +1,85 @@
-.detail{
+/* .detail{
   display: flex;
   background:var(--bg-100);
   align-items: center;
   justify-content: space-evenly;
   height: 604px;
+} */
+
+
+.detail{
+  width: 100%;
+  padding: 32px;
+  padding-top: 70px;
 }
-
-
-
 .containerDetail {
-  min-height: 367px;
-  max-width: 900px;
-  min-width: 300px;
-  margin: 100px;
-  border-radius: 30px;
+  background:var(--bg-100);
+min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 
 .flag {
+  width: 400px;
   height: 300px;
+  object-fit: cover;
   border-radius: 50px;
   box-shadow: 2px 4px 0px var(--accent-100);
 }
-
+.containerName{
+  margin-bottom: 20px;
+}
 .name {
-  font-size: 30px;
+  font-size: 50px;
   color:var(--text-100);
   text-shadow: 2px 4px 0px var(--accent-100), 7px 4px 0px var(--accent-200);
   transition: 200ms;
   align-items: center;
-  width: 160px;
+  width: 100%;
 }
-
+.id{
+  font-size: 25px;
+}
+.containerDetailInfo{
+  display:flex;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 40px;
+}
 .info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:flex-start;
+  height: 300px;
+  padding: 16px;
+  justify-content: space-between;
+}
+.divider{
+  height: 300px;
+  width: 3px;
+  background: var(--accent-200);
+
+}
+.containerActivities{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap:16px;
+  border: 2px solid var(--accent-200);
+  border-radius: 20px;
+  padding: 16px;
+  width: 30%;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 300px;
+
 }
 
-.info h3,
-.info h4 {
-  margin: 5px;
-}
-
+/* .containerDetailInfo > div:last-child > .divider{
+  display: none;
+} */
 @media (max-width: 414px) {
   .father {
     max-width: 414px;

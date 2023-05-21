@@ -3,11 +3,12 @@ import { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import axios from 'axios';
 import Helpers from '../Helpers/helpers';
-import { getAllCountries } from "../../redux/actions";
+import { getAllCountries, resetCountries } from "../../redux/actions";
 import { useDispatch, useSelector } from 'react-redux';
 import SearchBar from '../SearchBar/SearchBar';
 import Pagination from '../Pagination/Pagination';
 import load from "../../assets/Images/load4.gif";
+import SideBar from '../SideBar/SideBar';
 
 export default function Home(props) {
   const { setSearchResults, SearchResults, onSearch } = props;
@@ -15,9 +16,21 @@ export default function Home(props) {
   const [countryData, setCountryData] = useState([]);
   const [orden, setOrden] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const[isOpenBar, setisOpenBar]=useState(false);
 
   const dispatch = useDispatch();
   const order = useSelector(state => state.order);
+  
+
+
+  function openbar() {
+    setisOpenBar(true)
+  }
+  function closebar() {
+    console.log("cerrar")
+    setisOpenBar(false)
+  }
+  
 
   const filtered = useSelector(state => {
     return state.filtered.length === 0 ? state.allCountries : state.filtered;
@@ -67,6 +80,13 @@ export default function Home(props) {
     }
   };
 
+  useEffect(() =>{
+    setSearchResults([]);
+    setCurrentPage(1);
+    dispatch(resetCountries());
+    setOrden("");
+  }, [] )
+
   useEffect(() => {
     let isMounted = true;
     setLoading(true);
@@ -108,14 +128,22 @@ export default function Home(props) {
       );
       
 
-      return (
+      return ( 
+        
         <div className={style.home}>
+          
           {Loading ? (
             <div className={style.loadingContainer}>
               <p className={style.loadingText}>Loading Countries...</p>
               <img className={style.animation} src={load} alt="Loading" />
             </div>
           ) : (
+            <> 
+            {!isOpenBar &&(<button onClick={openbar}>Open</button>)}
+            {isOpenBar &&(<SideBar onClose={closebar}>
+              <h3>Filter</h3>
+              <Helpers orden={orden} setSearchResults={setSearchResults} setCurrentPage={setCurrentPage} setOrden={setOrden} />
+            </SideBar>)}
             <div className={style.body}>
               <div className={style.part1}>
                  <div className={style.title}>
@@ -123,9 +151,7 @@ export default function Home(props) {
                      <h2>Choose your Destination</h2>
                   </div>
                  <SearchBar onSearch={onSearch} />
-                  <div className={style.select}>
-                     <Helpers orden={orden} setSearchResults={setSearchResults} setCurrentPage={setCurrentPage} setOrden={setOrden} />
-                   </div>
+                 
               </div>
               <div className={style.container}>
                   {SearchResults.length > 0 ? (
@@ -143,7 +169,7 @@ export default function Home(props) {
                 onPageChange={handlePageChange}
               />
             </div>
-          )}
+            </>)}
         </div>
       );
       

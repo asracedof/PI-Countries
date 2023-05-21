@@ -1,11 +1,11 @@
-.form{
+.form {
   background-color: var(--bg-100);
-    display: absolute;
-    height: auto;
-    width: auto;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex; /* Cambio de absolute a flex */
+  height: auto;
+  width: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .loadingdiv{
   position: relative;
@@ -143,11 +143,7 @@
   background-color: white;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
-  text-align: end;
   left: 20%
 
 }

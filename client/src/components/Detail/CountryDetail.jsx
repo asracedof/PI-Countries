@@ -25,36 +25,41 @@ export default function Detail() {
   }
 
   return (
-    <div className={styles.detail}>
     
       <div className={styles.containerDetail}>
+        <div className={styles.detail}>
+            <div className={styles.containerName} >
+               <h1 className={styles.name}>{country.name}<span className={styles.id}>({country.id})</span></h1>
+           </div>
+           <div className={styles.containerDetailInfo}>
          <div>
-          <img className={styles.flag} src={country.image} alt={country.name} />
-        </div>
-        <div className={styles.info}>
-           <div className={styles.name}>
-          <h1>{country.name}</h1>
-        </div>
-          <h3>Id: {country.id}</h3>
-          <h4>Continent: {country.continents}</h4>
-          <h4>Capital: {country.capital}</h4>
-          <h4>Subregion: {country.subregion}</h4>
-          <h4>Area: {country.area}</h4>
-          <h4>Population: {country.population}</h4>
-        </div>
+           <img className={styles.flag} src={country.image} alt={country.name} />
+         </div>
+           <div className={styles.info}>
+              <h4>Continent: {country.continents}</h4>
+              <h4>Capital: {country.capital}</h4>
+              <h4>Subregion: {country.subregion}</h4>
+              <h4>Area: {country.area}</h4>
+              <h4>Population: {country.population}</h4>
+            </div>
+            <div className={styles.divider}></div>
+
+        <div className={styles.containerActivities}>
         {
-          country.activities && (country.activities.map(activity=>(
+          country.activities.length ? (country.activities.map(activity=>(
             <div key={activity.id}>
               <h4>{activity.name}</h4>
-              <p>Difficulty: {activity.difficulty}</p>
+              <p>Types: {activity.types}</p>
               <p>Duration: {activity.duration}</p>
               <p>Season: {activity.season}</p>
             </div>
-          )))
+          ))):(<h3>No activities</h3>)
         }
+        </div>
+        </div>
+        </div>
 
       </div>
-    </div>
     
   );
 }

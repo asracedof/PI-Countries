@@ -124,16 +124,8 @@ export default function Form() {
           <div className={style.background}>
             <h1 className={style.txt}>Register an Activity</h1>
             <form onSubmit={handleSubmit} className={style.conta}>
-              {success && (
-                <p className={style.ok}>
-                  <img src={ok} alt="success" />
-                </p>
-              )}
-              {fail !== null && (
-                <p className={style.fail}>
-                  <img src={failed} alt="fail" />
-                </p>
-              )}
+            {success && <p className={style.ok}><img src={ok} alt = "success"/></p> }
+            {fail !== null && <p className={style.fail}><img src={failed} alt = "fail"/></p>}
   
               <div className={style.group}>
                 <label className={style.label} htmlFor="name">

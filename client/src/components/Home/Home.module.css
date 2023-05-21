@@ -4,6 +4,7 @@
     height: auto;
     width: auto;
     flex-direction: row;
+    padding-top: 60px;
     justify-content: center;
     align-items: center;
 }
