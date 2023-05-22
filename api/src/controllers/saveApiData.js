@@ -16,7 +16,7 @@ const saveApiData = async () => {
           },
           defaults: {
             name: country.name.common,
-            image: country.flags.svg,
+            image: country.flags[0] || 'default-image-url',
             continents: getContinentName(country.continents[0]),
             capital: country.capital ? country.capital[0] : "No capital",
             subregion: country.subregion || "No subregion",
@@ -71,7 +71,7 @@ const getContinentName = (continents) => {
 
 const updateDbCountry = async (dbCountry, country) => {
   dbCountry.name = country.name.common;
-  dbCountry.image = country.flags.svg ;
+  dbCountry.image = country.flags[0] || 'default-image-url';
   dbCountry.continents = getContinentName(country.continents[0]);
   dbCountry.capital = country.capital ? country.capital[0] : "No capital";
   dbCountry.subregion = country.subregion || "No subregion";
