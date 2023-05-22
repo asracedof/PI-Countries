@@ -117,6 +117,12 @@ export default function Form() {
     }
   };
   
+  const deleteCountry = (id) => {
+    setInputs({
+      ...inputs,
+      countries: inputs.countries.filter((countryId) => countryId !== id),
+    });
+  };
 
   const resetForm = () => {
     setInputs(initialState);
@@ -195,31 +201,40 @@ export default function Form() {
                   Country:
                 </label>
                 <select
-  className={style.input}
-  name="countries"
-  onChange={handleCountry}
-  multiple
->
-  {country
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .map((country) => (
-      <option
-        key={country.id}
-        value={country.id}
-        selected={inputs.countries.includes(country.id.toString())}
-      >
-        {country.name}
-      </option>
-    ))}
-</select>
-
-                
-                
-
-                <input className = {style.input} name = "countries" type="text" value={inputs.countries}onChange={handleInputChange} ></input>
-            {touch.countries && errors.countries &&  <p className={style.validate1}>{errors.countries}</p>}
-            </div>
+                  className={style.input}
+                  name="countries"
+                  onChange={handleCountry}
+                  multiple
+                >
+                  {country
+                    .slice()
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .map((country) => (
+                      <option
+                        key={country.id}
+                        value={country.id}
+                        selected={inputs.countries.includes(country.id.toString())}
+                      >
+                        {country.name}
+                      </option>
+                    ))}
+                </select>
+                <div className={style.selectedCountries}>
+                  {inputs.countries.map((countryId) => (
+                    <div key={countryId} className={style.selectedCountry}>
+                      {country.find((c) => c.id === countryId)?.name}
+                      <button
+                        className={style.selectedCountry}
+                        type="button"
+                        onClick={() => deleteCountry(countryId)}
+                      >
+                        &times;
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                {touch.countries && errors.countries &&  <p className={style.validate1}>{errors.countries}</p>}
+              </div>
   
               <div className={style.group}>
                 <label className={style.label} htmlFor="season">

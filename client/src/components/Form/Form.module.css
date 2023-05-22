@@ -54,7 +54,40 @@
   
   
 }
+.selectedCountry {
+	padding: 0.3rem;
+	width: 70%;
+	min-height: 30px;
+	border: 1px solid blue;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.2rem;
+	flex-wrap: wrap;
+}
 
+.selectedCountry {
+	border: 1px solid gray;
+	width: fit-content;
+	padding: 0.2rem;
+	border-radius: 5px;
+	font-size: 16px;
+  margin: 3px;
+  background-color: #f5f5f5;
+  color: black;
+
+}
+
+.selectedCountry button {
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+	font-size: 20px;
+}
+
+.selectedCountry button:hover {
+	background-color: gray;
+}
 .conta{
   display: flex;
   flex-direction: column;
