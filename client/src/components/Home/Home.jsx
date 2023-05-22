@@ -16,6 +16,7 @@ export default function Home(props) {
   const [countryData, setCountryData] = useState([]);
   const [orden, setOrden] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  // eslint-disable-next-line no-unused-vars
   const[isOpenBar, setisOpenBar]=useState(false);
 
   const dispatch = useDispatch();
@@ -23,14 +24,9 @@ export default function Home(props) {
   
 
 
-  function openbar() {
-    setisOpenBar(true)
-  }
   function closebar() {
-    console.log("cerrar")
-    setisOpenBar(false)
+    setisOpenBar(false);
   }
-  
 
   const filtered = useSelector(state => {
     return state.filtered.length === 0 ? state.allCountries : state.filtered;
@@ -139,12 +135,11 @@ export default function Home(props) {
             </div>
           ) : (
             <> 
-            {!isOpenBar &&(<button onClick={openbar}>Open</button>)}
-            {isOpenBar &&(<SideBar onClose={closebar}>
-              <h3>Filter</h3>
-              <Helpers orden={orden} setSearchResults={setSearchResults} setCurrentPage={setCurrentPage} setOrden={setOrden} />
-            </SideBar>)}
-            <div className={style.body}>
+            <main className={style.main}>
+                <SideBar onClose={closebar}>
+                <Helpers orden={orden} setSearchResults={setSearchResults} setCurrentPage={setCurrentPage} setOrden={setOrden} />
+                </SideBar>
+                <div className={style.body}>
               <div className={style.part1}>
                  <div className={style.title}>
                      <h1>Embark on a Journey</h1>
@@ -168,7 +163,8 @@ export default function Home(props) {
                 totalPages={totalPages}
                 onPageChange={handlePageChange}
               />
-            </div>
+                </div>
+            </main>
             </>)}
         </div>
       );

@@ -24,7 +24,7 @@ export default function Form() {
   const initialState = {
     name: "",
     difficulty: 0,
-    duration: "",
+    duration: 0,
     season: "",
     countries: [],
     types: "",
@@ -52,26 +52,34 @@ export default function Form() {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    let processedValue = value; // Valor sin modificar
+  
+    if (name === "name") {
+      processedValue = value.toUpperCase(); // Convertir a mayúsculas
+    }
+  
     setInputs({
       ...inputs,
-      [name]: value,
+      [name]: processedValue,
     });
+  
     setErrors(validate({
       ...inputs,
-      [name]: value,
+      [name]: processedValue,
     }));
+  
     setTouch({
       ...touch,
       [name]: true,
     });
   };
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axios.post("/activities", inputs);
-      console.log("Agregado correctamente");
-    } catch (error) {
+      } catch (error) {
       console.log("Error al agregar la actividad", error.message);
     }
 
@@ -101,11 +109,14 @@ export default function Form() {
 
   const handleCountry = (event) => {
     const { value } = event.target;
-    setInputs({
-      ...inputs,
-      countries: [...inputs.countries, value],
-    });
+    if (!inputs.countries.includes(value)) {
+      setInputs({
+        ...inputs,
+        countries: [...inputs.countries, value],
+      });
+    }
   };
+  
 
   const resetForm = () => {
     setInputs(initialState);
@@ -144,54 +155,68 @@ export default function Form() {
               </div>
   
               <div className={style.group}>
-                <label className={style.label} htmlFor="difficulty">
-                  Difficulty:
-                </label>
-                <input
-                  className={style.input}
-                  name="difficulty"
-                  type="number"
-                  value={inputs.difficulty}
-                  onChange={handleInputChange}
-                />
-                {touch.difficulty && errors.difficulty && (
-                  <p className={style.validate}>{errors.difficulty}</p>
-                )}
-              </div>
-  
-              <div className={style.group}>
-                <label className={style.label} htmlFor="duration">
-                  Duration:
-                </label>
-                <input
-                  className={style.input}
-                  name="duration"
-                  type="text"
-                  value={inputs.duration}
-                  onChange={handleInputChange}
-                />
-                {touch.duration && errors.duration && (
-                  <p className={style.validate}>{errors.duration}</p>
-                )}
-              </div>
+                  <label className={style.label} htmlFor="difficulty">
+                    Difficulty:
+                  </label>
+                  <input
+                    className={style.input}
+                    name="difficulty"
+                    type="number"
+                    min="1"
+                    max="5"
+                    value={inputs.difficulty}
+                    onChange={handleInputChange}
+                  />
+                  {touch.difficulty && errors.difficulty && (
+                    <p className={style.validate}>{errors.difficulty}</p>
+                  )}
+                </div>
+
+                <div className={style.group}>
+                  <label className={style.label} htmlFor="duration">
+                    Duration (hours):
+                  </label>
+                  <input
+                    className={style.input}
+                    name="duration"
+                    type="number"
+                    min="1"
+                    max="24"
+                    value={inputs.duration}
+                    onChange={handleInputChange}
+                  />
+                  {touch.duration && errors.duration && (
+                    <p className={style.validate}>{errors.duration}</p>
+                  )}
+                </div>
   
               <div className={style.group}>
                 <label className={style.label} htmlFor="countries">
                   Country:
                 </label>
                 <select
-                  className={style.input}
-                  htmlFor="countries"
-                  value={inputs.countries}
-                  onChange={handleCountry}
-                  multiple
-                >
-                  {country.map((country) => (
-                    <option key={country.id} value={country.id}>
-                      {country.name}
-                    </option>
-                  ))}
-                </select>
+  className={style.input}
+  name="countries"
+  onChange={handleCountry}
+  multiple
+>
+  {country
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((country) => (
+      <option
+        key={country.id}
+        value={country.id}
+        selected={inputs.countries.includes(country.id.toString())}
+      >
+        {country.name}
+      </option>
+    ))}
+</select>
+
+                
+                
+
                 <input className = {style.input} name = "countries" type="text" value={inputs.countries}onChange={handleInputChange} ></input>
             {touch.countries && errors.countries &&  <p className={style.validate1}>{errors.countries}</p>}
             </div>

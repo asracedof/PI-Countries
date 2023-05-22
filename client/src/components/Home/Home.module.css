@@ -5,10 +5,15 @@
     width: auto;
     flex-direction: row;
     padding-top: 60px;
+    padding-left: 20%;
     justify-content: center;
     align-items: center;
 }
-
+.main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+}
 /* Estilo para el contenedor del mensaje de carga */
 .loadingContainer{
     position: relative;

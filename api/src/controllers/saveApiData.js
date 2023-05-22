@@ -1,13 +1,13 @@
 const axios = require("axios");
 const { Country } = require("../db");
 const { API_URL } = process.env;
-const { data } = require('../utils/data'); // Importar el archivo data.js
+const  data = require('../utils/data'); // Importar el archivo data.js
 
 const saveApiData = async () => {
   try {
     const response = await axios.get(`${API_URL}`);
     const countries = response.data;
-
+       
     await Promise.all(
       countries.map(async (country) => {
         const [dbCountry, created] = await Country.findOrCreate({
@@ -71,7 +71,7 @@ const getContinentName = (continents) => {
 
 const updateDbCountry = async (dbCountry, country) => {
   dbCountry.name = country.name.common;
-  dbCountry.image = country.flags.png;
+  dbCountry.image = country.flags.svg ;
   dbCountry.continents = getContinentName(country.continents[0]);
   dbCountry.capital = country.capital ? country.capital[0] : "No capital";
   dbCountry.subregion = country.subregion || "No subregion";

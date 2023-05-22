@@ -63,6 +63,7 @@
   --accent-100:#c9714d;
   --accent-200:#f49671;
   --accent-botton:#ff4c4c;
+  --accent-sidebar:#ee9635;
   --accent-card: #F9A825;
   --text-100:#8e3000;
   --text-200:#fff496;
@@ -73,11 +74,14 @@
   --bg-footer:#c17900;
   --bg-card:#ee9e17;
   --bg-text:#FF5722;
- 
+  --color-text: #ffffff;
+  --color-background: #ff135a;
+  --color-outline: #ff145b80;
+  --color-shadow: #00000080;
+  
   
 
-
-
+/* OTROS */
   --purple-light: #A869C1;
   --purple-medium: #7A3F93;
   --purple-dark: #47215E;

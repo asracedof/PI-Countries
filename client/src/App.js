@@ -41,12 +41,17 @@ function App() {
     <div>
      {ShowNavBar && <NavBar/>}
      <Routes>
-     <Route exact path='/' element= {<Landing/>}></Route>
+     <Route exact path='/' element= {
+     <>
+     <Landing/>
+     <Footer/>
+     </>
+    }></Route>
      <Route path= "/home" element = {<Home logout = { logout } setSearchResults = {setSearchResults} SearchResults = {SearchResults} onSearch = {handleSearch}/>}></Route>
      <Route path= "/detail/:id" element = {<CountryDetail />}></Route>
      <Route path= "/form" element = {<Form home = {home} />}></Route>
      </Routes>
-     <Footer />
+     
    </div>
    
     

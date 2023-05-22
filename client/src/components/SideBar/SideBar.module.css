@@ -1,36 +1,125 @@
-.sidebarContainer{
-    min-height: 100vh;
-    width: 100%;
-    background-color: #16161680;
-    position: fixed;
-    top: 0;
-    left: -3000px;
-    z-index: 11;
-    animation-name: openbar;
-    animation-duration: 0.6s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    backdrop-filter: blur(5px);
-
+.sidebarContainer {
+  min-height: 100vh;
+  background-color: var(--bg-footer);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  width: 200px;
 
 }
-.sidebar{
-    width: 20%;
-    background-color: aliceblue;
-    min-height: 100vh;
+.actLink{
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 500;
+  outline: none;
+  font-family: var(--font-family);
+  text-orientation: sideways;
 }
-.filterContainer{
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
+.actLink svg{
+  stroke: black;
+  width: 20px;
+  height: 20px;
+  
+}
+.button svg{
+  color: var(--text-color);
+  width: 35px;
+  height: 35px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 20px;
+  margin-bottom: 5px;  
+
+}
+.button{
+  display: flex;
+  text-decoration: none;
+  font-size: 20px;
+  text-align: center;
+}
+.sidebar {
+  min-height: 100vh;
+background-color: var(--bg-footer);
+position: fixed;
+top: 0;
+left: 0;
+z-index: 11;
+width: 200px;
 }
 
-@keyframes openbar {
-    0%{
-        left: -3000px;
-        }
-    100%{
-        left: 0;
-    }
+
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.filterbtn {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  border: none;
+   cursor: pointer;
+  background-color: var(--bg-footer);
+  color: var(--text-color);
+  width: 100%;
+  text-align: left;
+  outline: none;
+  padding: 8px 16px;
+  transition: 0.4s;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: var(--font-family);
+
+}
+
+.filterbtn svg {
+  stroke: black;
+  width: 20px;
+  height: 20px;
+ 
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.link:hover {
+  background-color: rgba(7, 7, 7, 0.7);
+  color: white;
+  border-radius: 20px;
+}
+
+.div {
+  border-radius: 70px;
+  padding: 10px;
+  margin-left: 50px;
+}
+
+.h1 {
+  font-size: 20px;
+ 
+}
+
+.decoration {
+  text-decoration: none;
+  color: white;
+}
+
+.decoration:hover {
+  color: black;
+}
+
+.img2 {
+  width: 40px;
+  margin-top: 5px;
+  margin-right: 5px;
+  border-radius: 20px;
 }
