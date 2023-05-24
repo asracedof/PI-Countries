@@ -1,5 +1,7 @@
 import style from '../SearchBar/SearchBar.module.css';
 import { useState } from 'react';
+import Search from '../Icons/Search';
+ 
 
 
 export default function SearchBar(props) {
@@ -19,13 +21,13 @@ export default function SearchBar(props) {
 
     
     return(
-        <div >
-            <form className={style.container} onSubmit={handleSubmit}>
-                <input  type = "text" placeholder = "Busca un país..." value = {countries} onChange={handleChange}></input>
-                <button className={style.button} type = "submit"></button>
+        <div className={style.group}>
+            <form  onSubmit={handleSubmit}>
+                <Search className={style.icon}/>
+                <input className={style.input} pattern=".*\S.*" type="search" placeholder = "Search a Country" value = {countries} onChange={handleChange} id="search"></input>
+                                        
             </form>
             
         </div>
     );
 }
-

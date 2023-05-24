@@ -1,6 +1,19 @@
 const Logout = (props) => (
-    <svg viewBox="0 0 512 512" {...props}>
-      <path d="m377.9 105.9 122.8 122.8c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9-18.7 0-33.9-15.2-33.9-33.9V320H192c-17.7 0-32-14.3-32-32v-64c0-17.7 14.3-32 32-32h128v-62.1c0-18.7 15.2-33.9 33.9-33.9 9 0 17.6 3.6 24 9.9zM160 96H96c-17.7 0-32 14.3-32 32v256c0 17.7 14.3 32 32 32h64c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-53 0-96-43-96-96V128c0-53 43-96 96-96h64c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
-    </svg>
+  <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={44}
+  height={44}
+  fill="none"
+  stroke="#2c3e50"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+  strokeWidth={1.5}
+  className="icon icon-tabler icon-tabler-arrow-bar-right"
+  viewBox="0 0 24 24"
+  {...props}
+>
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <path d="M20 12H10M20 12l-4 4M20 12l-4-4M4 4v16" />
+</svg>
   )
   export default Logout

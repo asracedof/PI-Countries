@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import style from '../NavBar/NavBar.module.css';
 import Home from '../Icons/Home';
 import Logout from '../Icons/Logout';
-
+import AddActivity from '../Icons/AddActivity'
 
 export default function Nav(){
     return (
@@ -11,15 +11,15 @@ export default function Nav(){
         <Link className={style.p}to = "/home">
              <Home/>
         </Link>
+        <Link className = {style.btnAct} to = "/form">
+                <span className={style.actLink}><AddActivity/></span>
+           </Link>
         <Link className= {style.btn} to= "/">
-              <div className={style.sign}>
+              
                     <Logout/>
-                    <div className={style.text}>Logout
-                    </div>
-                
-               </div>
-          </Link>
-        </div>
+                                
+       </Link>
+     </div>
          
        
 

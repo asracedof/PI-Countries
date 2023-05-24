@@ -6,6 +6,8 @@ import validate from "./validate";
 import ok from "../../assets/Images/success.png";
 import load from "../../assets/Images/load4.gif";
 import failed from "../../assets/Images/fail.png";
+import Delete from "../Icons/Delete";
+import CreateActivity from "../Icons/CreateActivity";
 
 export default function Form() {
   const allCountries = useSelector((state) => state.allCountries);
@@ -130,37 +132,37 @@ export default function Form() {
 
   return (
     <div className={style.form}>
-    <div className={style.loading}>
-      {loading ? (
-        <div className={style.loadingdiv}>
-          <p className={style.loadingp}>Loading activities...</p>
-          <img className={style.animation} src={load} alt="loading"></img>
-        </div>
-      ) : (
-        <div className={style.container}>
-          <div className={style.background}>
-            <h1 className={style.txt}>Register an Activity</h1>
-            <form onSubmit={handleSubmit} className={style.conta}>
-            {success && <p className={style.ok}><img src={ok} alt = "success"/></p> }
-            {fail !== null && <p className={style.fail}><img src={failed} alt = "fail"/></p>}
+      <div className={style.loading}>
+        {loading ? (
+          <div className={style.loadingdiv}>
+            <p className={style.loadingp}>Loading activities...</p>
+            <img className={style.animation} src={load} alt="loading"></img>
+          </div>
+        ) : (
+          <div className={style.container}>
+            <div className={style.background}>
+              <h1 className={style.txt}>Register an Activity</h1>
+              <form onSubmit={handleSubmit} className={style.conta}>
+                {success && <p className={style.ok}><img src={ok} alt="success" /></p>}
+                {fail !== null && <p className={style.fail}><img src={failed} alt="fail" /></p>}
   
-              <div className={style.group}>
-                <label className={style.label} htmlFor="name">
-                  Name:
-                </label>
-                <input
-                  className={style.input}
-                  name="name"
-                  type="text"
-                  value={inputs.name}
-                  onChange={handleInputChange}
-                />
-                {touch.name && errors.name && (
-                  <p className={style.validate}>{errors.name}</p>
-                )}
-              </div>
+                <div className={style.group}>
+                  <label className={style.label} htmlFor="name">
+                    Name:
+                  </label>
+                  <input
+                    className={style.input}
+                    name="name"
+                    type="text"
+                    value={inputs.name}
+                    onChange={handleInputChange}
+                  />
+                  {touch.name && errors.name && (
+                    <p className={style.validate}>{errors.name}</p>
+                  )}
+                </div>
   
-              <div className={style.group}>
+                <div className={style.group}>
                   <label className={style.label} htmlFor="difficulty">
                     Difficulty:
                   </label>
@@ -177,7 +179,7 @@ export default function Form() {
                     <p className={style.validate}>{errors.difficulty}</p>
                   )}
                 </div>
-
+  
                 <div className={style.group}>
                   <label className={style.label} htmlFor="duration">
                     Duration (hours):
@@ -196,98 +198,99 @@ export default function Form() {
                   )}
                 </div>
   
-              <div className={style.group}>
-                <label className={style.label} htmlFor="countries">
-                  Country:
-                </label>
-                <select
-                  className={style.input}
-                  name="countries"
-                  onChange={handleCountry}
-                  multiple
-                >
-                  {country
-                    .slice()
-                    .sort((a, b) => a.name.localeCompare(b.name))
-                    .map((country) => (
-                      <option
-                        key={country.id}
-                        value={country.id}
-                        selected={inputs.countries.includes(country.id.toString())}
-                      >
-                        {country.name}
-                      </option>
+                <div className={style.group}>
+                  <label className={style.label} htmlFor="countries">
+                    Country:
+                  </label>
+                  <select
+                    className={style.input}
+                    name="countries"
+                    onChange={handleCountry}
+                    multiple
+                  >
+                    {country
+                      .slice()
+                      .sort((a, b) => a.name.localeCompare(b.name))
+                      .map((country) => (
+                        <option
+                          key={country.id}
+                          value={country.id}
+                          selected={inputs.countries.includes(country.id.toString())}
+                        >
+                          {country.name}
+                        </option>
+                      ))}
+                  </select>
+                  <div className={style.selectedCountries}>
+                    {inputs.countries.map((countryId) => (
+                      <div key={countryId} className={style.selectedCountry}>
+                        {country.find((c) => c.id === countryId)?.name}
+                        <button
+                          className={style.btn}
+                          type="button"
+                          onClick={() => deleteCountry(countryId)}
+                        >
+                          <Delete />
+                        </button>
+                      </div>
                     ))}
-                </select>
-                <div className={style.selectedCountries}>
-                  {inputs.countries.map((countryId) => (
-                    <div key={countryId} className={style.selectedCountry}>
-                      {country.find((c) => c.id === countryId)?.name}
-                      <button
-                        className={style.selectedCountry}
-                        type="button"
-                        onClick={() => deleteCountry(countryId)}
-                      >
-                        &times;
-                      </button>
-                    </div>
-                  ))}
+                  </div>
+                  {touch.countries && errors.countries && <p className={style.validate}>{errors.countries}</p>}
                 </div>
-                {touch.countries && errors.countries &&  <p className={style.validate1}>{errors.countries}</p>}
-              </div>
   
-              <div className={style.group}>
-                <label className={style.label} htmlFor="season">
-                  Season:
-                </label>
-                <select
-                  className={style.input}
-                  name="season"
-                  value={inputs.season}
-                  onChange={handleInputChange}
-                >
-                  <option value="">Choose a season...</option>
-                  <option value="Spring">Spring</option>
-                  <option value="Summer">Summer</option>
-                  <option value="Autumn">Autumn</option>
-                  <option value="Winter">Winter</option>
-                </select>
-                {touch.season && errors.season && (
-                  <p className={style.validate}>{errors.season}</p>
-                )}
-              </div>
+                <div className={style.group}>
+                  <label className={style.label} htmlFor="season">
+                    Season:
+                  </label>
+                  <select
+                    className={style.input}
+                    name="season"
+                    value={inputs.season}
+                    onChange={handleInputChange}
+                  >
+                    <option value="">Choose a season...</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Summer">Summer</option>
+                    <option value="Autumn">Autumn</option>
+                    <option value="Winter">Winter</option>
+                  </select>
+                  {touch.season && errors.season && (
+                    <p className={style.validate}>{errors.season}</p>
+                  )}
+                </div>
   
-              <div className={style.group}>
-                <label className={style.label} htmlFor="types">
-                  Activity Type:
-                </label>
-                <select
-                  className={style.input}
-                  name="types"
-                  value={inputs.types}
-                  onChange={handleInputChange}
-                >
-                  <option value="">Choose an activity type...</option>
-                  <option value="Adventure">Adventure</option>
-                  <option value="Beach">Beach</option>
-                  <option value="Culture">Culture</option>
-                  <option value="Nature">Nature</option>
-                  <option value="Sports">Sports</option>
-                  <option value="Chilling">Chilling</option>
-                  <option value="Gastronomy">Gastronomy</option>
-                </select>
-                {touch.types && errors.types && (
-                  <p className={style.validate}>{errors.types}</p>
-                )}
-              </div>
+                <div className={style.group}>
+                  <label className={style.label} htmlFor="types">
+                    Activity Type:
+                  </label>
+                  <select
+                    className={style.input}
+                    name="types"
+                    value={inputs.types}
+                    onChange={handleInputChange}
+                  >
+                    <option value="">Choose an activity type...</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Beach">Beach</option>
+                    <option value="Culture">Culture</option>
+                    <option value="Nature">Nature</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Chilling">Chilling</option>
+                    <option value="Gastronomy">Gastronomy</option>
+                  </select>
+                  {touch.types && errors.types && (
+                    <p className={style.validate}>{errors.types}</p>
+                  )}
+                </div>
   
-              <button className={style.button}>Add Activity</button>
-            </form>
+                <button className={style.create}><span className={style.containerCreate}><CreateActivity />Create</span></button>
+              </form>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
     </div>
   );
+  
   
 }

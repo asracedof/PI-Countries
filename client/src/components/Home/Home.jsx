@@ -2,13 +2,15 @@ import style from './Home.module.css';
 import { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import axios from 'axios';
-import Helpers from '../Helpers/helpers';
 import { getAllCountries, resetCountries } from "../../redux/actions";
 import { useDispatch, useSelector } from 'react-redux';
 import SearchBar from '../SearchBar/SearchBar';
 import Pagination from '../Pagination/Pagination';
 import load from "../../assets/Images/load4.gif";
 import SideBar from '../SideBar/SideBar';
+import FilterHelpers from '../Helpers/Filters';
+import OrderHelpers from '../Helpers/Orders';
+import Reset from '../Icons/Reset';
 
 export default function Home(props) {
   const { setSearchResults, SearchResults, onSearch } = props;
@@ -21,12 +23,27 @@ export default function Home(props) {
 
   const dispatch = useDispatch();
   const order = useSelector(state => state.order);
+  const [selectValues, setSelectValues] = useState({
+    continent: "",
+    type: "",
+    alphabet: "",
+    population: ""
+  });
   
+  const resetStates = () => {
+    setSearchResults([]);
+    setCurrentPage(1);
+    dispatch(resetCountries());
+    setOrden("");
+    setSelectValues({
+      continent: "",
+      type: "",
+      alphabet: "",
+      population: ""
+    });
+  };
 
 
-  function closebar() {
-    setisOpenBar(false);
-  }
 
   const filtered = useSelector(state => {
     return state.filtered.length === 0 ? state.allCountries : state.filtered;
@@ -136,8 +153,9 @@ export default function Home(props) {
           ) : (
             <> 
             <main className={style.main}>
-                <SideBar onClose={closebar}>
-                <Helpers orden={orden} setSearchResults={setSearchResults} setCurrentPage={setCurrentPage} setOrden={setOrden} />
+                <SideBar>
+                <h3>Filters</h3><div className={style.filters}><FilterHelpers setOrden={setOrden} setCurrentPage={setCurrentPage} /></div>
+                <h3>Sort</h3><div className={style.orders}><OrderHelpers setOrden={setOrden} /></div>
                 </SideBar>
                 <div className={style.body}>
               <div className={style.part1}>
@@ -145,8 +163,11 @@ export default function Home(props) {
                      <h1>Embark on a Journey</h1>
                      <h2>Choose your Destination</h2>
                   </div>
-                 <SearchBar onSearch={onSearch} />
-                 
+                  <div className={style.searchResetContainer}>
+                    <SearchBar onSearch={onSearch} />
+                    <button className={style.button} onClick={() => { resetStates() }}><span className={style.button__text}>Reset</span><span className={style.button__icon}><Reset/></span></button>
+                  </div>
+                             
               </div>
               <div className={style.container}>
                   {SearchResults.length > 0 ? (

@@ -64,6 +64,21 @@
     min-width: 100%;
     
 } */
+.filters h3 {
+    margin-bottom: 10px; /* Ajusta el espacio entre el encabezado "Sort" y el componente "OrderHelpers" */
+  }
+.filters {
+    margin-top:10px ;
+    margin-bottom: 20px; /* Ajusta el espacio entre los filtros y los órdenes */
+  }
+
+  .orders h3 {
+    margin-bottom: 10px; /* Ajusta el espacio entre el encabezado "Sort" y el componente "OrderHelpers" */
+  }
+  
+  .orders {
+    margin-top: 10px; /* Ajusta el espacio entre los órdenes y el resto del contenido */
+  }
 .part1 {
     display: flex;
     flex-direction: column;
@@ -183,6 +198,78 @@
   
 }
 
+.searchResetContainer{
+    display: flex;
+    
+}
+/* Button RESET */
+.button {
+    position: relative;
+    width: 152px;
+    height: 45px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #578567;
+    background-color: #7cab8c;
+    overflow: hidden;
+  }
+  
+  .button, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+  
+  .button {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 600;
+  }
+  .button__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 90%;
+    width: 39px;
+    background-color: #85B595;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button .svg {
+    width: 46px;
+    height: 46px;
+    fill: #fff;
+  }
+  
+  .button:hover {
+    background:#85B595;
+  }
+  
+  .button:hover .button__text {
+    color: transparent;
+  }
+  
+  .button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+  
+  .button:active .button__icon {
+    background-color: #85B595;
+  }
+  
+  .button:active {
+    border: 1px solid #85B595;
+  }
+/* END Button RESET */
 
 @media (max-width: 768px) {
     
