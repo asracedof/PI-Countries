@@ -2,29 +2,18 @@
     border-radius: 20px;
     font-size: 1rem;
     height: 40px;
-    background-color: rgba(231, 96, 6, 0.8);
+    background-color: var( --bg-btnHome);
+    border: 1px solid var(--border-botton);
     color: white;
     padding: 5px;
 }
-.restore { 
-    border-radius: 20px;
-    font-size: 1rem;
-    height: 40px;
-    background-color: rgba(6, 130, 231, 0.8);
-    color: white;
-    padding: 10px;   
-    
-}
-.restore:hover{
-    background-color: white;
-    color:rgba(6, 130, 231, 0.8);
-    cursor: pointer;
-}
+
 .container:hover{
   background-color: rgb(255, 255, 255, 0.7);
   color: black;
   cursor: pointer;
 }
+
 .names {
     display: flex;
     flex-direction: row;
@@ -44,7 +33,6 @@
     width: 130px;
     border-radius: 20px;
     font-size: 15px;
-    background-color: rgb(164, 144, 124);
     color: white;
 }
 
@@ -53,8 +41,9 @@
         border-radius: 20px;
         font-size: 1rem;
         height: 50px;
-        background-color: rgba(255, 136, 39, 0.8);
-        color: rgb(255, 255, 255);
+        background-color: var( --bg-btnHome);
+        border: 1px solid var(--border-botton);
+        color: white;
         padding: 5px;
         width: auto;
     }

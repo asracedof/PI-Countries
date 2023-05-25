@@ -6,7 +6,7 @@ import { getAllCountries, resetCountries } from "../../redux/actions";
 import { useDispatch, useSelector } from 'react-redux';
 import SearchBar from '../SearchBar/SearchBar';
 import Pagination from '../Pagination/Pagination';
-import load from "../../assets/Images/load4.gif";
+import Loader from '../Icons/Loader';
 import SideBar from '../SideBar/SideBar';
 import FilterHelpers from '../Helpers/Filters';
 import OrderHelpers from '../Helpers/Orders';
@@ -146,9 +146,10 @@ export default function Home(props) {
         <div className={style.home}>
           
           {Loading ? (
-            <div className={style.loadingContainer}>
-              <p className={style.loadingText}>Loading Countries...</p>
-              <img className={style.animation} src={load} alt="Loading" />
+            <div className={style.loaderContainer}>
+                <div className={style.loader}>
+                    <Loader/>
+                </div>
             </div>
           ) : (
             <> 

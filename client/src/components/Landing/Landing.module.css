@@ -113,7 +113,7 @@
   animation: color_anim 1s infinite 0.6s;
 }
 
-.btnContent:hover .arrow-icon-two {
+.btnContent:hover arrow-icon-two {
   transform: translateX(0%);
   animation: color_anim 1s infinite 0.4s;
 }

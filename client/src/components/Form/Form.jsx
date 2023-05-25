@@ -4,7 +4,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import validate from "./validate";
 import ok from "../../assets/Images/success.png";
-import load from "../../assets/Images/load4.gif";
+import LoaderAct from "../Icons/LoaderAct";
 import failed from "../../assets/Images/fail.png";
 import Delete from "../Icons/Delete";
 import CreateActivity from "../Icons/CreateActivity";
@@ -57,8 +57,32 @@ export default function Form() {
     let processedValue = value; // Valor sin modificar
   
     if (name === "name") {
-      processedValue = value.toUpperCase(); // Convertir a mayúsculas
+      processedValue = value.replace(/[^A-Za-z\s]/g, ""); // Eliminar caracteres no permitidos
+      processedValue = processedValue.toUpperCase(); // Convertir a mayúsculas
     }
+    
+    if (name === "difficulty" || name === "duration") {
+      processedValue = value.replace(/[^0-9]/g, ""); // Eliminar caracteres no numéricos
+    }
+  
+    if (name === "duration") {
+      // Validar rango de valores
+      if (processedValue < 1) {
+        processedValue = "1"; // Establecer el valor mínimo permitido
+      } else if (processedValue > 24) {
+        processedValue = "24"; // Establecer el valor máximo permitido
+      }
+    }
+
+    if (name === "difficulty") {
+      // Validar rango de valores
+      if (processedValue < 1) {
+        processedValue = "1"; // Establecer el valor mínimo permitido
+      } else if (processedValue > 5) {
+        processedValue = "5"; // Establecer el valor máximo permitido
+      }
+    }
+ 
   
     setInputs({
       ...inputs,
@@ -134,10 +158,11 @@ export default function Form() {
     <div className={style.form}>
       <div className={style.loading}>
         {loading ? (
-          <div className={style.loadingdiv}>
-            <p className={style.loadingp}>Loading activities...</p>
-            <img className={style.animation} src={load} alt="loading"></img>
+          <div className={style.loaderContainer}>
+          <div className={style.loader}>
+              <LoaderAct/>
           </div>
+      </div>
         ) : (
           <div className={style.container}>
             <div className={style.background}>
@@ -170,8 +195,6 @@ export default function Form() {
                     className={style.input}
                     name="difficulty"
                     type="number"
-                    min="1"
-                    max="5"
                     value={inputs.difficulty}
                     onChange={handleInputChange}
                   />
@@ -188,8 +211,6 @@ export default function Form() {
                     className={style.input}
                     name="duration"
                     type="number"
-                    min="1"
-                    max="24"
                     value={inputs.duration}
                     onChange={handleInputChange}
                   />
@@ -248,7 +269,7 @@ export default function Form() {
                     value={inputs.season}
                     onChange={handleInputChange}
                   >
-                    <option value="">Choose a season...</option>
+                    <option value="" disabled>Choose a season...</option>
                     <option value="Spring">Spring</option>
                     <option value="Summer">Summer</option>
                     <option value="Autumn">Autumn</option>
@@ -269,7 +290,7 @@ export default function Form() {
                     value={inputs.types}
                     onChange={handleInputChange}
                   >
-                    <option value="">Choose an activity type...</option>
+                    <option value="" disabled>Choose an activity type...</option>
                     <option value="Adventure">Adventure</option>
                     <option value="Beach">Beach</option>
                     <option value="Culture">Culture</option>

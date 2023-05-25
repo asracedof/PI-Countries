@@ -1,6 +1,6 @@
 .home{
     background-color: var(--bg-100);
-    display: absolute;
+    display: flex;
     height: auto;
     width: auto;
     flex-direction: row;
@@ -15,55 +15,54 @@
     display: flex;
 }
 /* Estilo para el contenedor del mensaje de carga */
-.loadingContainer{
-    position: relative;
-    padding-top: 100px;
-    padding-bottom: 400px;
+.loaderContainer{
+  background-color: var(--bg-100);
+  display: flex; /* Cambio de absolute a flex */
+  height: auto;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 70px;
+  
 }
 
-/* Estilo para el mensaje de carga */
-.loadingText{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    z-index: 1;
-}
-/* Estilo para la carga */
-.animation {
-    width: 30%;
-    height: 30%;
-    animation: bounce 1s infinite;
-    padding-top: 60px;
-    margin-left: 580px;
+.loader {
+	width: 24em;
+	height: 24em;
 }
 
-@keyframes bounce {
-    0% {
-      transform: translateY(0);
-    }
-    25% {
-      transform: translateY(-10px);
-    }
-    50% {
-      transform: translateY(0);
-    }
-    75% {
-      transform: translateY(-5px);
-    }
-    100% {
-      transform: translateY(0);
-    }
+.loader path {
+	stroke: #000;
+	stroke-width: 0.6px;
+	animation: dashArray 4s ease-in-out infinite, dashOffset 4s linear infinite;
 }
-/* 
-.body {
-    background-color:var(--light-aupe);
-    min-width: 100%;
-    
-} */
+
+@keyframes dashArray {
+	0% {
+		stroke-dasharray: 0 1 359 0;
+	}
+
+	50% {
+		stroke-dasharray: 0 359 1 0;
+	}
+
+	100% {
+		stroke-dasharray: 359 1 0 0;
+	}
+}
+
+@keyframes dashOffset {
+	0% {
+		stroke-dashoffset: 365;
+	}
+
+	100% {
+		stroke-dashoffset: 5;
+	}
+}
+
 .filters h3 {
     margin-bottom: 10px; /* Ajusta el espacio entre el encabezado "Sort" y el componente "OrderHelpers" */
   }
@@ -83,7 +82,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 100px;
+    
 
 }
 

@@ -1,49 +1,59 @@
 .form {
   background-color: var(--bg-100);
-  display: flex; /* Cambio de absolute a flex */
+  display: flex; /* Cambio de absolute a flex */;
   height: auto;
   width: auto;
   flex-direction: column;
+}
+/* LOADER */
+.loaderContainer{
+  background-color: var(--bg-100);
+  display: flex; /* Cambio de absolute a flex */
+  height: auto;
+  width: auto;
   justify-content: center;
   align-items: center;
-}
-.loadingdiv{
   position: relative;
-  padding-top: 100px;
-  padding-bottom: 400px;
-  text-align: center;
-
-}
-.loadingp{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  z-index: 1;
+  padding-top: 70px;
+  padding-bottom: 130px;
+  
 }
 
-.loading img.animation {
-  width: 30%;
-  height: 30%;
-  animation: bounce 1s infinite;
-  padding-top: 60px;
-  margin-left: 580px;
+.loader {
+	width: 24em;
+	height: 24em;
 }
 
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+.loader path {
+	stroke: #000;
+	stroke-width: 0.6px;
+	animation: dashArray 4s ease-in-out infinite, dashOffset 4s linear infinite;
 }
+
+@keyframes dashArray {
+	0% {
+		stroke-dasharray: 0 1 359 0;
+	}
+
+	50% {
+		stroke-dasharray: 0 359 1 0;
+	}
+
+	100% {
+		stroke-dasharray: 359 1 0 0;
+	}
+}
+
+@keyframes dashOffset {
+	0% {
+		stroke-dashoffset: 365;
+	}
+
+	100% {
+		stroke-dashoffset: 5;
+	}
+}
+/* END LOADER */
 .container {
   display: flex;
   flex-direction: row;
@@ -168,9 +178,7 @@
 }
 
 .background {
-  
   border-radius: 10px;
-  width: 500px;
   padding-bottom: 40px;
   position: relative;
   
