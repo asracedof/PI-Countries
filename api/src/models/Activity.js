@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
       difficulty: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: 1,
+        defaultValue: 1, //! PROP OBLIGATORIA 
         comment: 'Difficulty level of the activity (1-5)',
         },
       duration: {

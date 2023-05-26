@@ -1,11 +1,11 @@
 import Card from '../Card/Card';
 
 export default function Cards(props) {
-  const { searchResults} = props;
+  const { SearchResults} = props;
 
   return (
     <div>
-      {searchResults?.map((country, index) => (
+      {SearchResults?.map((country, index) => (
         <Card
           key={index}
           id={country.id}
