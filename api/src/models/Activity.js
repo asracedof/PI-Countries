@@ -20,11 +20,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: 1,
         comment: 'Difficulty level of the activity (1-5)',
-        validate: {
-          min: 1,
-          max: 5,
         },
-      },
       duration: {
         type: DataTypes.INTEGER,
         allowNull: true,
@@ -47,10 +43,3 @@ module.exports = (sequelize) => {
       timestamps: false,
     });    
   };
-
-  // createdInBD: {
-  //   type: DataTypes.BOOLEAN,
-  //   allowNull: false,
-  //   defaultValue:true,
-  //   comment: 'Created in database',
-  // }

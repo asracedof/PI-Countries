@@ -25,8 +25,8 @@ export default function Form() {
   });
   const initialState = {
     name: "",
-    difficulty: 0,
-    duration: 0,
+    difficulty: 1,
+    duration: 1,
     season: "",
     countries: [],
     types: "",
@@ -36,8 +36,8 @@ export default function Form() {
 
   const [errors, setErrors] = useState({
     name: "",
-    difficulty: 0,
-    duration: "",
+    difficulty: 1,
+    duration: 1,
     season: "",
     countries: [],
     types: "",
